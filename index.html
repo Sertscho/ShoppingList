@@ -4,31 +4,43 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<title>Einkaufsliste</title>
-	<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
-	<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#11998e">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-title" content="Einkauf">
 	<link rel="apple-touch-icon" href="icons/icon-180.png">
 	<link rel="manifest" href="manifest.webmanifest">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header>
-		<h1>Einkaufsliste</h1>
+	<header class="hero">
+		<p id="greeting"></p>
+		<h1>Einkaufsliste 🛒</h1>
 		<p id="summary"></p>
+		<div class="progress"><div id="progressBar"></div></div>
+
+		<form id="addForm" autocomplete="off">
+			<input id="userinput" type="text" placeholder="Was brauchst du?" enterkeyhint="done" aria-label="Neuer Artikel">
+			<button id="enter" type="submit" aria-label="Hinzufügen">+</button>
+		</form>
 	</header>
 
-	<form id="addForm" autocomplete="off">
-		<input id="userinput" type="text" placeholder="Artikel hinzufügen …" enterkeyhint="done" aria-label="Neuer Artikel">
-		<button id="enter" type="submit" aria-label="Hinzufügen">+</button>
-	</form>
+	<main>
+		<div id="chips" aria-label="Schnell hinzufügen"></div>
 
-	<ul id="list"></ul>
-	<p id="empty">Deine Liste ist leer.</p>
+		<ul id="list"></ul>
 
-	<button id="clearDone" type="button">Erledigte löschen</button>
+		<div id="empty">
+			<div class="empty-icon">🧺</div>
+			<p><strong>Alles erledigt!</strong><br>Füge oben etwas hinzu oder tippe auf einen Vorschlag.</p>
+		</div>
+
+		<h2 id="doneTitle">Im Wagen ✓</h2>
+		<ul id="doneList"></ul>
+
+		<button id="clearDone" type="button">🗑️ Erledigte löschen</button>
+	</main>
 
 	<script src="script.js"></script>
 </body>
