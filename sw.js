@@ -1,5 +1,5 @@
 // Speichert die App-Dateien, damit sie auch offline (z. B. im Supermarkt ohne Netz) startet.
-var CACHE = "einkaufsliste-v1";
+var CACHE = "einkaufsliste-v2";
 var FILES = [
 	"./",
 	"index.html",
